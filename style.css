@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+:root{
+  --bg-color: rgb(44, 43, 43) ;
+  --text-color: rgb(193, 184, 184) ;
+  --bg-color:rgb(226, 219, 219) ;
+  --text-color:rgb(238, 112, 112) ;
+  --primary-color: rgb(228, 154, 15);
+  --primary-text: arial;
+  --primary-color: rgb(236, 236, 236);
+  --bg---color: red;
+  }
+
+:root.dark{
+  --bg-color: rgb(44, 43, 43) ;
+  --text-color: rgb(193, 184, 184) ;
+  }
+  
+  :root.light{
+    --bg-color:rgb(167, 164, 164) ;
+    --bg-color: rgb(231, 222, 222);
+  }
+
+  :root.Pokemon{
+    --bg-color: red; ;
+    --text-color: rgb(44, 43, 43) ;
+    --background-image: url(https://media.vandal.net/i/1280x720/3-2019/20193116333055_1.jpg.webp);
+  }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    background-image: var(--background-image);
+}
+
+.navbar {
+    border-bottom: 2px solid #17a2b8;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+h1{
+color: var(--primary--color);
+font-family: var(--primary--text);
+}
+
+p{
+color: var(--primary--color);
+}
+
+#todos{
+  color: blue;
+  border-color: blue;
+  background-color: white;
+
+}
