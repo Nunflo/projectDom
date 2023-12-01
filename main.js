@@ -39,16 +39,18 @@ document.querySelector('#app').innerHTML = `
       <div class="mb-3">
         <textarea id="description" class="form-control" placeholder="Describe o dejame tu Post"></textarea>
         <p class="text-danger" id="error-description"></p>
-      </div>
- 
-      <div class="d-grid gap-2">
+        </div>
+        
+        <div class="d-grid gap-2">
         <button type="submit" class="btn btn-primary">Add new to do</button>
-      </div>
-    </form>
- 
-  </div>
-  </div>
-
+        </div>
+        </form>
+        
+        </div>
+        </div>
+        
+        <section class="row container mt-5" id="todos"></section>
+        
   <!-- Lista de Tareas -->
   <div class="container">
     <h1>Lista de Tareas</h1>
@@ -66,9 +68,6 @@ document.querySelector('#app').innerHTML = `
     </div>
   </div>
  
-  <section class="row container mt-5" id="todos">
- 
-  </section>
 
   <!-- Footer -->
 <footer class="bg-dark text-light text-center py-3">
