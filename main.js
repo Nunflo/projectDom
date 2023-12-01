@@ -47,7 +47,23 @@ document.querySelector('#app').innerHTML = `
  
   </div>
   </div>
- 
+
+  <!-- Lista de Tareas -->
+  <div class="container">
+    <h1>Lista de Tareas</h1>
+    <div class="search">
+      <form action="">
+        <input type="text" placeholder="Agregar Tarea...">
+        <button class="btn-add">+</button>
+        <div class="li-container">
+          <ul></ul>
+        </div>
+        <div class="empty">
+          <p>No tienes tareas pendientes.</p>
+        </div>
+      </form>
+    </div>
+  </div>
  
   <section class="row container mt-5" id="todos">
  
@@ -134,39 +150,46 @@ const showTodos = () => {
 // LISTA DE TAREAS
 
 // Seleccionar los elementos
-const input = document.querySelector('input')
+const input = document.querySelector('.search input')
 const addBtn = document.querySelector('.btn-add')
-const ul = document.querySelector('ul')
+const ul = document.querySelector('.li-container ul')
 const empty = document.querySelector('.empty')
 
 addBtn.addEventListener('click', (e) => { //Agrego evento al boton
   e.preventDefault()// Evita que el form recargue la pagina
-  const text = input.value //Toma el valor de la tarea y la guarda en la variable
+  const text = input.value.trim() //Toma el valor de la tarea y la guarda en la variable
+//Trim para eliminar espacios en blanco al inicio y al final
 
-  const li = document.createElement('li') //Creamos variables para agregar a las funciones del index
+if (text !== "") {
+  const li = document.createElement('li') //Creamos variables para agregar a las funciones 
   const p = document.createElement('p')
   p.textContent = text
 
   li.appendChild(p)//Agregando el parrafo al li y el li al ul
-  ul.appendChild(li)
   li.appendChild(addDeleteBtn()) // llama a la funcion, crea el boton, agrega el listener y lo agrega al li
 
+  ul.appendChild(li)
   input.value = "" //Eliminar el texto ya escrito
   empty.style.display = "none"
+}
 })
 
   function addDeleteBtn() { //Boton que borra
   const deleteBtn = document.createElement('button') //crea el boton
   
   deleteBtn.textContent = "X"
-  deleteBtn.id = "btn-delete"
-
-  deleteBtn.addEventListener('Click', (e) => { 
-    const item = e.target.parentElement //Del elemento selecciona la variable del boton y elimina el papa
-    ul.removeChild(item) // borra el element desde la ul
+  deleteBtn.className = "btn-delete"
   
-  //que vuelva a aparecer cuando no haya elementos
-    const items = document.querySelectorAll('li')
+  deleteBtn.addEventListener('click', (e) => { 
+    const item = e.target.parentElement //Del elemento selecciona la variable del boton y elimina el papa
+    ul.removeChild(item) // borra el element desde la ul que vuelva a aparecer cuando no haya elementos
+    updateEmptyState() //Esto llama a una funcion para manejar el estado vacio
+  
+    const div = document.createElement('div')
+    div.appendChild(deleteBtn)
+    return div
+
+    const items = document.querySelectorAll('.li-container li')
 
     if (items.length === 0){ //verifica que haya li
       empty.style.display = "block"

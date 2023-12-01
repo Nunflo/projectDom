@@ -58,3 +58,33 @@ color: var(--primary--color);
   background-color: white;
 
 }
+
+/* Lista de Tareas */
+
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--primary--color);
+  padding: 30px;
+}
+
+.search {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.li-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--bg-color);
+  padding: 8px;
+}
+
+.li-container li .btn-delete{
+  margin-left: auto; /* Para que el boton este en la derecha */
+}
