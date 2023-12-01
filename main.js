@@ -130,7 +130,47 @@ const showTodos = () => {
   })
 }
 
-  
-  
 
+// LISTA DE TAREAS
 
+// Seleccionar los elementos
+const input = document.querySelector('input')
+const addBtn = document.querySelector('.btn-add')
+const ul = document.querySelector('ul')
+const empty = document.querySelector('.empty')
+
+addBtn.addEventListener('click', (e) => { //Agrego evento al boton
+  e.preventDefault()// Evita que el form recargue la pagina
+  const text = input.value //Toma el valor de la tarea y la guarda en la variable
+
+  const li = document.createElement('li') //Creamos variables para agregar a las funciones del index
+  const p = document.createElement('p')
+  p.textContent = text
+
+  li.appendChild(p)//Agregando el parrafo al li y el li al ul
+  ul.appendChild(li)
+  li.appendChild(addDeleteBtn()) // llama a la funcion, crea el boton, agrega el listener y lo agrega al li
+
+  input.value = "" //Eliminar el texto ya escrito
+  empty.style.display = "none"
+})
+
+  function addDeleteBtn() { //Boton que borra
+  const deleteBtn = document.createElement('button') //crea el boton
+  
+  deleteBtn.textContent = "X"
+  deleteBtn.id = "btn-delete"
+
+  deleteBtn.addEventListener('Click', (e) => { 
+    const item = e.target.parentElement //Del elemento selecciona la variable del boton y elimina el papa
+    ul.removeChild(item) // borra el element desde la ul
+  
+  //que vuelva a aparecer cuando no haya elementos
+    const items = document.querySelectorAll('li')
+
+    if (items.length === 0){ //verifica que haya li
+      empty.style.display = "block"
+    }
+  })
+  return deleteBtn
+  }
