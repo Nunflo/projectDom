@@ -42,7 +42,7 @@ document.querySelector('#app').innerHTML = `
         </div>
         
         <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary">Add new to do</button>
+        <button type="submit" class="btn btn-primary">Postear</button>
         </div>
         </form>
         
@@ -146,6 +146,16 @@ const showTodos = () => {
   })
 }
 
+//integrar el modo background al h5 faltante
+document.querySelector("#darkMode").addEventListener("click", () => {
+  document.documentElement.className = "dark"
+})
+document.querySelector("#lightMode").addEventListener("click", () => {
+  document.documentElement.className = "light"
+})
+document.querySelector("#pokeMode").addEventListener("click", () => {
+  document.documentElement.className = "Pokemon"
+})
 
 // LISTA DE TAREAS
 

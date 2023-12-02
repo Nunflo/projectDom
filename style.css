@@ -9,6 +9,7 @@
   --primary-text: arial;
   --primary-color: rgb(236, 236, 236);
   --bg---color: red;
+  --text-color-dark: rgb(193, 184, 184)
   }
 
 :root.dark{
@@ -53,10 +54,16 @@ color: var(--primary--color);
 }
 
 #todos{
-  color: blue;
-  border-color: blue;
+  color: rgb(141, 141, 200);
+  border-color: rgb(174, 174, 216);
   background-color: white;
 
+}
+
+/* Integrando dark, light y poke mode al h5 */
+
+.dark .card-title{
+  color: var(--text-color-dark)
 }
 
 /* Lista de Tareas */
